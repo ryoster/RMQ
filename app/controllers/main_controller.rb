@@ -12,6 +12,15 @@ class MainController < UIViewController
 
     # Create your UIViews here
 
+    rmq.append(UILabel, :search_label)
+
+    @query = rmq.append(UITextField, :query).focus.get
+
+    rmq.append(UIButton, :submit_button).on(:touch) do |sender|
+      puts 'button tapped'
+    end
+
+
   end
 
   def init_nav
