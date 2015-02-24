@@ -62,11 +62,15 @@ class ImagesController < UICollectionViewController
     image_popup(@image_urls[index_path.row])
   end
 
-  def image_popup(image)
+  def image_popup(image_url)
     rmq.wrap(rmq.app.window).tap do |o|
       o.append(UIView, :overlay).animations.fade_in.on(:tap) do |sender|
-        rmq(sender).hide.remove
+        o.find(sender, :overlay_image, :overlay_note).hide.remove
       end
+
+      o.append(UIImageView, :overlay_image).get.url = image_url
+      o.append(UILabel, :overlay_note)
+
     end
   end
 

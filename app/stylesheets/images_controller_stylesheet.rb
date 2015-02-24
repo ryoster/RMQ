@@ -28,4 +28,17 @@ class ImagesControllerStylesheet < ApplicationStylesheet
     st.background_color = color.from_rgba(0,0,0,0.7)
   end
 
+  def overlay_image(st)
+    st.frame = :full
+    st.view.contentMode = UIViewContentModeScaleAspectFit
+  end
+
+  def overlay_note(st)
+    st.frame = {t: 18, w: device_width, h: 18}
+    st.text = 'tap anywher to close'
+    st.font = font.small
+    st.color = color.white
+    st.text_alignment = :center
+  end
+
 end
