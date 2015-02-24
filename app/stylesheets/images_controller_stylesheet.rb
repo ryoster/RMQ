@@ -22,4 +22,10 @@ class ImagesControllerStylesheet < ApplicationStylesheet
       #cl.sectionInset = [0,0,0,0]
     end
   end
+
+  def overlay(st)
+    st.frame = :full
+    st.background_color = color.from_rgba(0,0,0,0.7)
+  end
+
 end
