@@ -1,6 +1,6 @@
 module ImagesCellStylesheet
   def cell_size
-    {w: 96, h: 96}
+    {w: device_width / 2, h: device_width / 5}
   end
 
   def images_cell(st)
@@ -8,10 +8,12 @@ module ImagesCellStylesheet
     st.background_color = color.random
 
     # Style overall view here
+    st.clips_to_bounds = true
   end
 
   def image(st)
     st.frame = :full
+    st.view.contentMode = UIViewContentModeScaleAspectFill
   end
 
 end
